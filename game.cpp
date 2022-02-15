@@ -41,7 +41,7 @@ bool Game::add_player(const GameKey&, std::shared_ptr<Player> p) {
 
 size_t Game::number_of_players() const {
     return std::accumulate(players.begin(), players.end(), 0, [](int lop, const player_entry& rop) {
-       return lop + !rop.second.expired();
+        return lop + !rop.second.expired();
     });
 }
 
@@ -93,7 +93,7 @@ std::ostream& Game::print(std::ostream& o) const {
 
     bool first = true;
     for (const auto& p : players) {
-        if(std::shared_ptr<Player> p_lock = p.second.lock()) {
+        if (std::shared_ptr<Player> p_lock = p.second.lock()) {
             if (first) {
                 first = false;
             } else {
